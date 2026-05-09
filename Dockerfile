@@ -1,22 +1,20 @@
-FROM php:8.2-apache
+FROM php:8.2-cli
 
 RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    zip \
+    git \
     unzip \
+    zip \
+    libzip-dev \
     && docker-php-ext-install pdo pdo_mysql bcmath
 
-# Desactivar MPM conflictivos y dejar prefork
-RUN a2dismod mpm_event || true
-RUN a2dismod mpm_worker || true
-RUN a2enmod mpm_prefork
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-RUN a2enmod rewrite
+WORKDIR /app
 
-WORKDIR /var/www/html
+COPY . .
 
-COPY . /var/www/html
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-RUN chown -R www-data:www-data /var/www/html
+EXPOSE 8080
 
-EXPOSE 80
+CMD php artisan serve --host=0.0.0.0 --port=8080
