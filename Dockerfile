@@ -6,6 +6,11 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && docker-php-ext-install pdo pdo_mysql bcmath
 
+# Desactivar MPM conflictivos y dejar prefork
+RUN a2dismod mpm_event || true
+RUN a2dismod mpm_worker || true
+RUN a2enmod mpm_prefork
+
 RUN a2enmod rewrite
 
 WORKDIR /var/www/html
