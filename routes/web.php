@@ -23,11 +23,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/usuarios', [UsuarioController::class, 'index']); 
 
-Route::get('/', function () {
-    $resenas = Resena::orderBy('fecha_publicacion', 'desc')->take(5)->get();
-    return view('welcome', compact('resenas'));
-});
-
 Route::get('/buscar', [CuidadorController::class, 'index'])->name('buscar');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
