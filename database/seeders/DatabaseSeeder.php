@@ -9,14 +9,16 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
-    {
-        $this->call([
-            UserSeeder::class,
-            CuidadorSeeder::class,
-            MascotaSeeder::class,
-            ServicioSeeder::class,
-            ReservaSeeder::class,
-            ResenaSeeder::class,
-        ]);
+{
+    if (app()->environment('local')) {
+            $this->call([
+                UserSeeder::class,
+                CuidadorSeeder::class,
+                MascotaSeeder::class,
+                ServicioSeeder::class,
+                ReservaSeeder::class,
+                ResenaSeeder::class,
+            ]);
+        }
     }
 }
