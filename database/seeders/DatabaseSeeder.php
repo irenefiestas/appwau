@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
             ServicioSeeder::class,
             ReservaSeeder::class,
             ResenaSeeder::class,
-            IncidenciaSeeder::class,
         ]);
     }
 }
