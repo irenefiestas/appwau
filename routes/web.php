@@ -15,7 +15,7 @@ use App\Models\Resena;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'OK';
 });
 
 Route::get('/seed-test', function () {
