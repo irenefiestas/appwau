@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Resena extends Model
 {
-    protected $table = 'resenas';
+    protected $table = 'resena';
 
     protected $primaryKey = 'id_resena';
 
