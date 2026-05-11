@@ -9,12 +9,19 @@ use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Artisan;
 
 use App\Models\Resena;
 
 
 Route::get('/', function () {
     return view('welcome', ['resenas' => []]);
+});
+
+Route::get('/seed-test', function () {
+    Artisan::call('db:seed', ['--force' => true]);
+
+    return 'Seed ejecutado';
 });
 
 Route::get('/dashboard', function () {
