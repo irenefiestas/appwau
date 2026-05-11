@@ -14,7 +14,7 @@ use App\Models\Resena;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['resenas' => []]);
 });
 
 Route::get('/dashboard', function () {
