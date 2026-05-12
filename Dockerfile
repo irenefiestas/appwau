@@ -15,6 +15,9 @@ COPY . .
 
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
+RUN npm install
+RUN npm run build
+
 EXPOSE 8080
 
 CMD php artisan serve --host=0.0.0.0 --port=8080
