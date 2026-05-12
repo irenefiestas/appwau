@@ -10,21 +10,22 @@ class MascotaSeeder extends Seeder
 {
     public function run(): void
     {
-        Mascota::insert([
-            [
-                'user_id' => 2,
-                'nombre' => 'Rocky',
-                'especie' => 'Perro',
-                'raza' => 'Labrador',
-                'tamano' => 'Grande'
-            ],
-            [
-                'user_id' => 4,
-                'nombre' => 'Luna',
-                'especie' => 'Gato',
-                'raza' => 'Común',
-                'tamano' => 'Pequeño'
-            ]
-        ]);
+            Mascota::firstOrCreate(
+        ['user_id' => 2, 'nombre' => 'Rocky'],
+        [
+            'especie' => 'Perro',
+            'raza' => 'Labrador',
+            'tamano' => 'Grande'
+        ]
+    );
+
+    Mascota::firstOrCreate(
+        ['user_id' => 4, 'nombre' => 'Luna'],
+        [
+            'especie' => 'Gato',
+            'raza' => 'Común',
+            'tamano' => 'Pequeño'
+        ]
+    );
     }
 }

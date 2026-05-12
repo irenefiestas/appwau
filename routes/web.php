@@ -18,12 +18,6 @@ Route::get('/', function () {
     return view('welcome', ['resenas' => []]);
 });
 
-Route::get('/seed-test', function () {
-    Artisan::call('db:seed', ['--force' => true]);
-
-    return 'Seed ejecutado';
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
