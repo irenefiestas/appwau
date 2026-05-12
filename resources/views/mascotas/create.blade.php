@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>{{ isset($mascota) ? 'Editar mascota' : 'Añadir mascota' }}</title>
 
     @vite(['resources/css/app.css'])
