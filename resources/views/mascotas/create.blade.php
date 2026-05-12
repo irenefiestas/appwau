@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>{{ isset($mascota) ? 'Editar mascota' : 'Añadir mascota' }}</title>
 
+    @vite(['resources/css/app.css'])
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
